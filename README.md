@@ -1,12 +1,13 @@
-Project used to illustrate bug  in peedskater/babel-plugin-rewire (babel-plugin-rewire 1.0.0. Beta 5).
+#Demo Project for TDZ issue in babel-plugin-rewire
+THis project contains sample code for reproducing issue mentioned in [speedskater/babel-plugin-rewire](https://github.com/speedskater/babel-plugin-rewire) (babel-plugin-rewire 1.0.0. Beta 5).
 
-There appears to be two issue. The first can be seen when compiling the source:
-'
+There appears to be two issues. These can be seen in the generated code when compiling the source:
+```
 gulp
-'
+```
 The generated log.js file (which has been run through babel 6) contains two TDZ errors. The generated code is:
-'''javascript
 
+```javascript
 exports.default = _get__("getLog"); // This calls _get__ which references _RewiredData which is block-scoped and not yet defined
 
 ...
@@ -22,14 +23,14 @@ function _get__(variableName) {
 }
 ...
 let _RewireAPI__ = {};
-'''
+```
 
 Alternatively, if you run the unit test using:
-'
+```
 npm test
-'
+```
 you should see the generated error for the simple two-line unit test:
-'
+```
 $npm test
 
 > rewire-issue@1.0.0 test /path/to/rewire-issue
@@ -44,4 +45,4 @@ ReferenceError: _RewiredData__ is not defined
     at Object.<anonymous> (testIndex.js:2:16)
     at Module._compile (module.js:434:26)
     at loader (path/to/rewire-issue/node_modules/babel-register/lib/node.js:130:5)
-'
+```
