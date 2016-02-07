@@ -1,0 +1,22 @@
+{
+  "name": "rewire-issue",
+  "version": "1.0.0",
+  "description": "Sample code to reproduce issue",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-register"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.4.5",
+    "babel-plugin-rewire": "^1.0.0-beta-5",
+    "babel-preset-es2015-node4": "^2.0.3",
+    "babel-register": "^6.4.3",
+    "chai": "^3.5.0",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "mocha": "^2.4.5"
+  }
+}
